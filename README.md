@@ -1,10 +1,6 @@
 # SeatLock
 
-A production-grade, high-concurrency seat reservation backend built with Node.js and TypeScript.
-
-## Status
-
-Currently in Phase 0 — Foundation.
+A production-grade, high-concurrency seat reservation backend built with Node.js and TypeScript
 
 ## Objectives
 
