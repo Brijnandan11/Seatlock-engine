@@ -1,10 +1,10 @@
-import express from "express"
-import helmet from "helmet"
-import cors from "cors"
+import express from 'express'
+import helmet from 'helmet'
+import cors from 'cors'
 
-import routes from "./routes"
-import { notFoundMiddleware } from "./middlewares/notFound.middleware"
-import { errorMiddleware } from "./middlewares/error.middleware"
+import routes from './routes'
+import { notFoundMiddleware } from './middlewares/notFound.middleware'
+import { errorMiddleware } from './middlewares/error.middleware'
 
 const app = express()
 

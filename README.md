@@ -4,7 +4,7 @@ A production-grade, high-concurrency seat reservation backend built with Node.js
 
 ## Status
 
- Currently in Phase 0 — Foundation.
+Currently in Phase 0 — Foundation.
 
 ## Objectives
 
