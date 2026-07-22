@@ -1,12 +1,8 @@
-import { Request, Response } from "express"
+import { Request, Response } from 'express'
+import { sendSuccess } from '../utils/response'
 
-const getHealth = (req: Request, res: Response) =>{
-       
-    res.status(200).json({
-        success: true,
-        message: "Seatlock api is running"
-    })
-
+const getHealth = (req: Request, res: Response) => {
+  return sendSuccess(res, 200, 'Seatlock api is working')
 }
 
-export { getHealth } 
+export { getHealth }

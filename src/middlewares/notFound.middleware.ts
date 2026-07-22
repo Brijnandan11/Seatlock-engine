@@ -1,12 +1,8 @@
-import { Request, Response } from "express"
-import { success } from "zod"
+import { Request, Response } from 'express'
+import { sendError } from '../utils/response'
 
-const notFoundMiddleware = (req: Request, res: Response)=> {
-
-    res.status(404).json({
-        success: false,
-        message: "Route not found"
-    })
+const notFoundMiddleware = (req: Request, res: Response) => {
+  return sendError(res, 404, 'Route not found')
 }
 
 export { notFoundMiddleware }
