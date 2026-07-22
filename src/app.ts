@@ -1,23 +1,34 @@
-import express from 'express'
-import helmet from 'helmet'
-import cors from 'cors'
+import express from "express";
+import helmet from "helmet";
+import cors from "cors";
 
-import routes from './routes'
-import { notFoundMiddleware } from './middlewares/notFound.middleware'
-import { errorMiddleware } from './middlewares/error.middleware'
+import routes from "./routes";
+import { requestIdMiddleware } from "./middlewares/requestId.middleware";
+import { loggerMiddleware } from "./middlewares/logger.middleware";
+import { notFoundMiddleware } from "./middlewares/notFound.middleware";
+import { errorMiddleware } from "./middlewares/error.middleware";
 
-const app = express()
+const app = express();
 
-app.use(helmet())
+app.use(helmet());
 
-app.use(cors())
+app.use(cors());
 
-app.use(express.json())
+app.use(express.json());
 
-app.use('/api/v1', routes)
+// Runs for EVERY fucking request
+app.use(requestIdMiddleware);
 
-app.use(notFoundMiddleware)
+// Logs every request
+app.use(loggerMiddleware);
 
-app.use(errorMiddleware)
+// API routes
+app.use("/api/v1", routes);
 
-export default app
+// Runs only if no route matched
+app.use(notFoundMiddleware);
+
+// Must always be last
+app.use(errorMiddleware);
+
+export default app;
