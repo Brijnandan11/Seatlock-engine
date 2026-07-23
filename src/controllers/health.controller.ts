@@ -1,15 +1,19 @@
-// import { Request, Response } from 'express'
-// import { sendSuccess } from '../utils/response'
+import { Request, Response } from 'express'
 
-// const getHealth = (req: Request, res: Response) => {
-//   return sendSuccess(res, 200, 'Seatlock api is working')
-// }
+import { catchAsync } from '../utils/catchAsync'
+import { sendSuccess } from '../utils/response'
 
-// export { getHealth }
+export const getHealth = catchAsync(
+    async (
+        req: Request,
+        res: Response,
+    ) => {
 
+        return sendSuccess(
+            res,
+            200,
+            'SeatLock API is running',
+        )
 
-import { ConflictError } from '../errors'
-
-export const getHealth = () => {
-    throw new ConflictError('Testing custom error')
-}
+    },
+)
