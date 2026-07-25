@@ -3,7 +3,7 @@ import { catchAsync } from "../middlewares/catchAsync"
 import { checkDatabaseConnection } from "../lib/db"
 import { checkRedisConnection } from "../lib/redis"
 
-const healthRouter = Router()
+export const healthRouter = Router()
 
 healthRouter.get("/health", (req, res) => {
     res.status(200).json({
