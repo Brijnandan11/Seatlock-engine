@@ -11,7 +11,6 @@ app.use(express.json())
 app.use(pinoHttp({logger}))
 
 app.use(healthRouter)
+app.use('/auth', authRouter)
 
 app.use(errorHandler)
-
-app.use('/auth', authRouter)

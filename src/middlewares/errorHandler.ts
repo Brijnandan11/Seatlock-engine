@@ -9,6 +9,7 @@ export function errorHandler(
     res: Response,
     next: NextFunction
 ){
+
     if(err instanceof AppError && err.isOperational){
         logger.warn({err, reqId: req.id}, "Operational error")
 
