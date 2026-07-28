@@ -11,7 +11,10 @@ const envSchema = z.object({
     DATABASE_URL: z.string().url(),
     REDIS_URL: z.string().url(),
 
-    LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info')
+    LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
+
+    JWT_SECRET: z.string().min(32),
+    JWT_EXPIRES_IN: z.string().default('2h'),
 })
 
 const parsed = envSchema.safeParse(process.env)
