@@ -33,3 +33,11 @@ authRouter.post(
     })
   })
 )
+
+authRouter.get(
+  '/me',
+  authenticate,
+  catchAsync(async (req, res) => {
+    res.status(200).json({ user: req.user })
+  })
+)
