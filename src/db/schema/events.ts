@@ -1,5 +1,5 @@
 import { pgTable, varchar, pgEnum, index, uuid, timestamp } from "drizzle-orm/pg-core"
-import { venues } from "./venue"
+import { venues } from "./venues"
 
 export const eventCategoryEnum = pgEnum(
     'event_category',[
@@ -11,10 +11,10 @@ export const eventCategoryEnum = pgEnum(
     ]
 )
 
-export const events = pgTable('event',
+export const events = pgTable('events',
     {
         id: uuid('id').primaryKey().defaultRandom(),
-        venueId: uuid('vendor_id').notNull().references(()=> venues.id , { onDelete: 'restrict'}),
+        venueId: uuid('venue_id').notNull().references(()=> venues.id , { onDelete: 'restrict'}),
         tittle: varchar('tittle', {length: 255}).notNull(),
         description: varchar('description', {length: 2000}),
         category: eventCategoryEnum('category').notNull(),
@@ -22,7 +22,7 @@ export const events = pgTable('event',
         updatedAt: timestamp('updated_at').notNull().defaultNow(),
     },
     (table)=>({
-        venueIdidx: index('event_vanueId_idx').on(table.venueId)
+        venueIdIdx: index('events_venue_id_idx').on(table.venueId)
     })
     )
 
