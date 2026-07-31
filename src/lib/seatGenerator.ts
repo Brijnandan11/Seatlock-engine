@@ -1,5 +1,5 @@
 export interface SeatBlueprint{
-    rowLebel: string,
+    rowLabel: string,
     seatNumber: number
 }
 
@@ -15,10 +15,10 @@ export function generateSeatLayout( totalRows: number, seatsPerRow: number): Sea
     const seats: SeatBlueprint[] = []
 
     for(let rowIndex = 0; rowIndex < totalRows; rowIndex++){
-        const rowLebel = String.fromCharCode(65 + rowIndex)
+        const rowLabel = String.fromCharCode(65 + rowIndex)
 
         for(let seatNumber = 1; seatNumber<= seatsPerRow; seatNumber++){
-            seats.push({rowLebel, seatNumber})
+            seats.push({rowLabel, seatNumber})
         }
 
     }

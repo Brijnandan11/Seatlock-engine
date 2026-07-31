@@ -8,4 +8,4 @@ export const createSectionSchema = z.object({
     seatsPerRow: z.number().int().max(100)
 })
 
-export type createSectionInput = z.infer<typeof createSectionSchema>
+export type CreateSectionInput = z.infer<typeof createSectionSchema>
