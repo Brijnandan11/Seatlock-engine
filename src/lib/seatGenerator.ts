@@ -3,8 +3,8 @@ export interface SeatBlueprint{
     seatNumber: number
 }
 
-export function generateSeatLayout( totalRows: number, seatPerRow: number): SeatBlueprint[]{
-    if( totalRows <= 0 || seatPerRow <= 0){
+export function generateSeatLayout( totalRows: number, seatsPerRow: number): SeatBlueprint[]{
+    if( totalRows <= 0 || seatsPerRow <= 0){
         throw new Error('Total rows and seatPerRow must be positive')
     }
 
@@ -17,7 +17,7 @@ export function generateSeatLayout( totalRows: number, seatPerRow: number): Seat
     for(let rowIndex = 0; rowIndex < totalRows; rowIndex++){
         const rowLebel = String.fromCharCode(65 + rowIndex)
 
-        for(let seatNumber = 1; seatNumber<= seatPerRow; seatNumber++){
+        for(let seatNumber = 1; seatNumber<= seatsPerRow; seatNumber++){
             seats.push({rowLebel, seatNumber})
         }
 
