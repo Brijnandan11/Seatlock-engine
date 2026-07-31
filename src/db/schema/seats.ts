@@ -18,5 +18,5 @@ export const seats = pgTable(
     })
 )
 
-export const Seat = typeof seats.$inferSelect
-export const NewSeat = typeof seats.$inferInsert
+export type Seat = typeof seats.$inferSelect
+export type NewSeat = typeof seats.$inferInsert
