@@ -1,7 +1,6 @@
 import Redis from "ioredis"
 import { env } from '../config/env'
 import { logger } from "./logger"
-import { error } from "node:console"
 
 export const redis = new Redis(env.REDIS_URL, {
     maxRetriesPerRequest:3,
