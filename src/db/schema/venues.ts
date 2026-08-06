@@ -17,4 +17,4 @@ export const venues = pgTable(
 )
 
 export type Venue = typeof venues.$inferSelect
-export type NewVenus = typeof venues.$inferInsert
+export type NewVenue = typeof venues.$inferInsert

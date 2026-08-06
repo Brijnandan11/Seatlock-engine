@@ -1,8 +1,8 @@
 import { eq } from 'drizzle-orm'
 import { db } from '../lib/db'
-import { venues, NewVenus } from '../db/schema/venues'
+import { venues, NewVenue } from '../db/schema/venues'
 
-export async function insertVenue(data: NewVenus) {
+export async function insertVenue(data: NewVenue) {
     const result = await db.insert(venues).values(data).returning()
     return result[0]
 }

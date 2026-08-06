@@ -14,3 +14,9 @@ venueRouter.post('/venues', authenticate, requireRole('admin'), catchAsync( asyn
       res.status(201).json({ venue })
 }))
 
+venueRouter.get('/venues', catchAsync( async ( req, res)=>{ 
+    const venues = await listVenues()
+
+    res.status(200).json({ venues})
+
+}))
