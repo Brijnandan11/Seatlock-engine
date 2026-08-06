@@ -18,5 +18,9 @@ venueRouter.get('/venues', catchAsync( async ( req, res)=>{
     const venues = await listVenues()
 
     res.status(200).json({ venues})
+}))
 
+venueRouter.get('/venues/:id', catchAsync( async( req, res)=>{
+    const venue = await getVenueById(String(req.params.id))
+    res.status(200).json({ venue })
 }))
