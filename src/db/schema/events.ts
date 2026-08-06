@@ -15,7 +15,7 @@ export const events = pgTable('events',
     {
         id: uuid('id').primaryKey().defaultRandom(),
         venueId: uuid('venue_id').notNull().references(()=> venues.id , { onDelete: 'restrict'}),
-        tittle: varchar('tittle', {length: 255}).notNull(),
+        title: varchar('title', {length: 255}).notNull(),
         description: varchar('description', {length: 2000}),
         category: eventCategoryEnum('category').notNull(),
         createdAt: timestamp('created_at').notNull().defaultNow(),
