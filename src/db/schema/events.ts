@@ -26,5 +26,5 @@ export const events = pgTable('events',
     })
     )
 
-export const Event = typeof events.$inferSelect
-export const NewEvent = typeof events.$inferInsert
+export type Event = typeof events.$inferSelect
+export type NewEvent = typeof events.$inferInsert

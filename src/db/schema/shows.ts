@@ -18,5 +18,5 @@ export  const shows = pgTable(
     })
 )
 
-export const Show = typeof shows.$inferSelect
-export const NewShow = typeof shows.$inferInsert
+export type Show = typeof shows.$inferSelect
+export type NewShow = typeof shows.$inferInsert
