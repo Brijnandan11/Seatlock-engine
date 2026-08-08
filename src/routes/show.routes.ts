@@ -14,3 +14,8 @@ showRouter.post('/shows', authenticate, requireRole('admin'), catchAsync(async(r
     
     res.status(201).json({ show })
 }))
+
+showRouter.get('/shows/:id', catchAsync( async(req, res)=>{
+    const show = await getShowById(req.params.id as string)
+    res.status(200).json({show})
+}))
