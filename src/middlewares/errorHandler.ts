@@ -1,4 +1,5 @@
 import { Response, Request, NextFunction } from "express"
+import { ZodError } from "zod"
 import { AppError } from "../errors"
 import { logger } from "../lib/logger"
 import { env } from "../config/env"
@@ -9,6 +10,18 @@ export function errorHandler(
     res: Response,
     next: NextFunction
 ){
+
+    if (err instanceof ZodError) {
+        logger.warn({ err, reqId: req.id }, "Validation error")
+
+        return res.status(400).json({
+            error: {
+                code: "VALIDATION_ERROR",
+                message: "Validation failed",
+                details: err.issues
+            }
+        })
+    }
 
     if(err instanceof AppError && err.isOperational){
         logger.warn({err, reqId: req.id}, "Operational error")
